@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import com.coindesk.backend.repository.CurrencyRepository;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,7 @@ public class CoindeskService {
     }
 
     private String formatTime(String iso) {
-        LocalDateTime time = LocalDateTime.parse(iso);
+        OffsetDateTime  time = OffsetDateTime.parse(iso);
         return time.format(DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"));
     }
 }

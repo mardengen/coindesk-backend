@@ -1,6 +1,6 @@
-package tests;
+package com.coindesk.backend.controller;
 
-import app.service.CoindeskService;
+import com.coindesk.backend.service.CoindeskService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

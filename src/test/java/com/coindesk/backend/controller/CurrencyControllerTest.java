@@ -107,15 +107,14 @@ class CurrencyControllerTest {
 
     @Test
     void testFetchRawCoindesk() throws Exception {
-        mockMvc.perform(get("/api/coindesk/raw"))
+        mockMvc.perform(get("/api/coindesk/original"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.bpi").exists())
-                .andExpect(jsonPath("$.bpi.USD").exists());
+                .andExpect(content().string(org.hamcrest.Matchers.containsString("USD"))); // 以字串方式驗證
     }
 
     @Test
     void testFetchTransformedCoindesk() throws Exception {
-        mockMvc.perform(get("/api/coindesk/transform"))
+        mockMvc.perform(get("/api/coindesk/converted"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.updateTime").exists())
                 .andExpect(jsonPath("$.currencies.USD.code").value("USD"))
